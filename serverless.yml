@@ -1,0 +1,24 @@
+
+service: apollo-tracing
+
+provider:
+  name: azure
+  runtime: nodejs10
+plugins:
+  - 'serverless-azure-functions'
+
+functions:
+  graphql:
+    handler: azureApollo
+    events:
+      - http: true
+        x-azure-settings:
+          methods:
+            - POST
+            - GET
+          route: graphql
+          authLevel: function
+      - http: true
+        x-azure-settings:
+          direction: out
+          name: $return

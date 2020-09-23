@@ -1,0 +1,25 @@
+{
+  "name": "apollo-tracing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:express": "node expressApollo",
+    "start:azure": "serverless offline",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-azure-functions": "^2.18.0",
+    "apollo-server-express": "^1.4.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "graphql": "^15.3.0",
+    "graphql-tools": "^6.2.3"
+  },
+  "devDependencies": {
+    "azure-functions-core-tools": "^2.7.2913",
+    "serverless-azure-functions": "^2.1.0"
+  }
+}
