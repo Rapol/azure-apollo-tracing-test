@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:express": "node expressApollo",
-    "start:azure": "serverless offline",
+    "start:aws": "serverless offline --c serverless-aws.yml",
+    "start:azure": "serverless offline --c serverless-azure.yml",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -13,6 +14,7 @@
   "dependencies": {
     "apollo-server-azure-functions": "^2.18.0",
     "apollo-server-express": "^1.4.0",
+    "apollo-server-lambda": "^2.18.1",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "graphql": "^15.3.0",
@@ -20,6 +22,7 @@
   },
   "devDependencies": {
     "azure-functions-core-tools": "^2.7.2913",
-    "serverless-azure-functions": "^2.1.0"
+    "serverless-azure-functions": "^2.1.0",
+    "serverless-offline": "^6.8.0"
   }
 }

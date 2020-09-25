@@ -10,4 +10,8 @@ To serve azure example
 
 `npm run start:azure`
 
-Making a query to express returns tracing information while azure doesnt
+To serve aws example
+
+`npm run start:aws`
+
+Making a query to express returns tracing information while azure nor aws do not
