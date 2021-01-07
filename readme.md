@@ -1,17 +1,24 @@
-# azure apollo tracing
+# Apollo gateway tracing
 
-Tracing information not being returned by azure-apollo-server-azure-functions apollo server
+Tracing information not being returned by apollo gateway.
 
-To serve express example
+To run `npm start`
 
-`npm run start:express`
+The example will expose two endpoints:
 
-To serve azure example
+- graphql: [POST,GET] http://localhost:7071/api/graphql
+- bookService: [POST,GET] http://localhost:7071/api/bookService
 
-`npm run start:azure`
 
-To serve aws example
+If we visit the gateway grapqhl endpoint, tracing information is not returned
 
-`npm run start:aws`
+If we go straight to the bookService graphql endpoint, tracing information is returned
 
-Making a query to express returns tracing information while azure nor aws do not
+Example query 
+```
+{
+  books {
+    title
+  }
+}
+```

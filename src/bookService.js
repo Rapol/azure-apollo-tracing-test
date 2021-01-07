@@ -1,5 +1,5 @@
-const { ApolloServer } = require('apollo-server-lambda');
-const { makeExecutableSchema } = require('graphql-tools');
+const { ApolloServer, gql } = require('apollo-server-azure-functions');
+const { buildFederatedSchema } = require('@apollo/federation');
 
 // Some fake data
 const books = [
@@ -14,7 +14,7 @@ const books = [
 ];
 
 // The GraphQL schema in string form
-const typeDefs = `
+const typeDefs = gql`
   type Query { books: [Book] }
   type Book { title: String, author: String }
 `;
@@ -25,17 +25,18 @@ const resolvers = {
 };
 
 // Put together a schema
-const schema = makeExecutableSchema({
+const schema = buildFederatedSchema([{
   typeDefs,
   resolvers,
-});
+}]);
 
 
 const server = new ApolloServer({
     schema,
     tracing: true,
-    playground: true,
+    // debug: true,
     introspection: true,
+    playground: true,
 });
 
 module.exports = server.createHandler();

@@ -9,7 +9,7 @@ plugins:
 
 functions:
   graphql:
-    handler: azureApollo
+    handler: src/gateway
     events:
       - http: true
         x-azure-settings:
@@ -17,6 +17,20 @@ functions:
             - POST
             - GET
           route: graphql
+          authLevel: function
+      - http: true
+        x-azure-settings:
+          direction: out
+          name: $return
+  bookService:
+    handler: src/bookService
+    events:
+      - http: true
+        x-azure-settings:
+          methods:
+            - POST
+            - GET
+          route: bookService
           authLevel: function
       - http: true
         x-azure-settings:
